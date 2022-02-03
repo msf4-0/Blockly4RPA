@@ -9,7 +9,7 @@ Blockly.Blocks['clipboard'] = {
     this.setOutput(true, "String");
     this.setColour(180);
  this.setTooltip("clipboard()");
- this.setHelpUrl("");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rclipboardtext_to_put");
   }
 };
 
@@ -32,7 +32,7 @@ Blockly.Blocks['get_text'] = {
     this.setOutput(true, "String");
     this.setColour(180);
  this.setTooltip("get_text()");
- this.setHelpUrl("");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rget_textsource_text-left-right-count--1");
   }
 };
 
@@ -49,7 +49,7 @@ Blockly.Blocks['del_chars'] = {
     this.setOutput(true, "String");
     this.setColour(180);
  this.setTooltip("del_chars()");
- this.setHelpUrl("");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rdel_charssource_text-characters");
   }
 };
 
@@ -79,7 +79,7 @@ Blockly.Blocks['mouse_event'] = {
       }
       return tooltip;
     });
-    this.setHelpUrl("");
+    this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rmouse_xy-rmouse_x-rmouse_y");
   }
 };
 
@@ -105,7 +105,7 @@ Blockly.Blocks['title_text'] = {
       }
       return tooltip;
     });
-  this.setHelpUrl("");
+  this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rtitle-rtext");
   }
 };
 
@@ -118,7 +118,7 @@ Blockly.Blocks['timer'] = {
     this.setOutput(true, "Number");
     this.setColour(180);
  this.setTooltip("timer()");
- this.setHelpUrl("");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rtimer");
   }
 };
 
@@ -146,7 +146,7 @@ Blockly.Blocks['exist_present'] = {
       }
       return tooltip;
     });
- this.setHelpUrl("");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rexistelement_identifier-presentelement_identifier");
   }
 };
 
@@ -160,6 +160,6 @@ Blockly.Blocks['count'] = {
     this.setOutput(true, "Number");
     this.setColour(180);
  this.setTooltip("count()");
- this.setHelpUrl("");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rcountelement_identifier");
   }
 };

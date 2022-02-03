@@ -13,7 +13,7 @@ Blockly.Blocks['initialize'] = {
     this.setNextStatement(true, null);
     this.setColour(230);
  this.setTooltip("init()");
- this.setHelpUrl("");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rinitvisual_automation--false-chrome_browser--true-rinitvisual_automationchrome_browserturbo--false");
   }
 };
 
@@ -32,7 +32,7 @@ Blockly.Blocks['initialize2'] = {
     this.setNextStatement(true, null);
     this.setColour(230);
  this.setTooltip("init()");
- this.setHelpUrl("");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rinitvisual_automation--false-chrome_browser--true-rinitvisual_automationchrome_browserturbo--false");
   }
 };
 
@@ -62,6 +62,6 @@ Blockly.Blocks['init_close_pack_update'] = {
       }
     return tooltip;
     });
-    this.setHelpUrl("");
+    this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rinitrcloserpackrupdate");
   }
 };

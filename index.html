@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockly4TagUI</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/dialog-polyfill/dist/dialog-polyfill.css" />
+    <!-- <a href="https://github.com/GoogleChrome/dialog-polyfill"></a> -->
+    <script src="https://unpkg.com/dialog-polyfill/dist/dialog-polyfill.js"></script>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    
+  </head>
+
+  <body>
+    <dialog id="dialog" class="mdl-dialog">
+      <h3 class="mdl-dialog__title">Import Workspace</h3>
+      <div class="mdl-dialog__content">
+      <p>
+          Copy & Paste code from xml file.
+      </p>
+      </div>
+      <textarea style="height: 400px; width: 400px;" id="xmltextarea"></textarea>
+      <input type="file" id="myFile" name="xmlFile">
+      <div class="mdl-dialog__actions"> 
+          <button type="button" class="mdl-button close">Close</button>
+          <button type="button" class="mdl-button" onclick="importXml()">Import</button>
+      </div>
+    </dialog>
+
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title">Blockly4TagUI</span>
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+          <!-- Navigation. We hide it in small screens. -->
+          <nav class="mdl-navigation mdl-layout--fixed-tabs">
+            <button class="mdl-button mld-js-button mld-js-ripple-effect" onclick="exportXml()">Export Flow</button>
+            <button class="mdl-button mld-js-button mld-js-ripple-effect" onclick="exportCode()">Download python</button>
+            <button class="mdl-button mld-js-button mld-js-ripple-effect dialog-button" id ="importButton" >Import Workspace</button> 
+            <button class="mdl-button mld-js-button mld-js-ripple-effect dialog-button" onclick = "window.open('http://127.0.0.1:1880/ui');">Run Python</button> 
+          </nav>
+        </div>
+      </header>
+      
+    <main class="mdl-layout__content">
+      <div class="blockly-editor"id="blocklyDiv">
+        <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+          <category name="Logic" colour="#5b80a5">
+            <block type="controls_if"></block>
+            <block type="logic_compare">
+              <field name="OP">EQ</field>
+            </block>
+            <block type="logic_operation">
+              <field name="OP">AND</field>
+            </block>
+            <block type="logic_negate"></block>
+            <block type="logic_boolean">
+              <field name="BOOL">TRUE</field>
+            </block>
+            <block type="logic_null"></block>
+            <block type="logic_ternary"></block>
+          </category>
+          <category name="Loops" colour="#5ba55b">
+            <block type="controls_repeat_ext">
+              <value name="TIMES">
+                <shadow type="math_number">
+                  <field name="NUM">10</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="controls_whileUntil">
+              <field name="MODE">WHILE</field>
+            </block>
+            <block type="controls_for">
+              <field name="VAR" id="?2x$CjV*?]!fHv@1[IOu">i</field>
+              <value name="FROM">
+                <shadow type="math_number">
+                  <field name="NUM">1</field>
+                </shadow>
+              </value>
+              <value name="TO">
+                <shadow type="math_number">
+                  <field name="NUM">10</field>
+                </shadow>
+              </value>
+              <value name="BY">
+                <shadow type="math_number">
+                  <field name="NUM">1</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="controls_forEach">
+              <field name="VAR" id="#8*K1p~Cx{k#[zGm$]U^">j</field>
+            </block>
+            <block type="controls_flow_statements">
+              <field name="FLOW">BREAK</field>
+            </block>
+            <block type="for_loop"></block>
+          </category>
+          <category name="Math" colour="#5b67a5">
+            <block type="math_number">
+              <field name="NUM">0</field>
+            </block>
+            <block type="math_arithmetic">
+              <field name="OP">ADD</field>
+              <value name="A">
+                <shadow type="math_number">
+                  <field name="NUM">1</field>
+                </shadow>
+              </value>
+              <value name="B">
+                <shadow type="math_number">
+                  <field name="NUM">1</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="math_single">
+              <field name="OP">ROOT</field>
+              <value name="NUM">
+                <shadow type="math_number">
+                  <field name="NUM">9</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="math_trig">
+              <field name="OP">SIN</field>
+              <value name="NUM">
+                <shadow type="math_number">
+                  <field name="NUM">45</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="math_constant">
+              <field name="CONSTANT">PI</field>
+            </block>
+            <block type="math_number_property">
+              <mutation divisor_input="false"></mutation>
+              <field name="PROPERTY">EVEN</field>
+              <value name="NUMBER_TO_CHECK">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="math_round">
+              <field name="OP">ROUND</field>
+              <value name="NUM">
+                <shadow type="math_number">
+                  <field name="NUM">3.1</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="math_on_list">
+              <mutation op="SUM"></mutation>
+              <field name="OP">SUM</field>
+            </block>
+            <block type="math_modulo">
+              <value name="DIVIDEND">
+                <shadow type="math_number">
+                  <field name="NUM">64</field>
+                </shadow>
+              </value>
+              <value name="DIVISOR">
+                <shadow type="math_number">
+                  <field name="NUM">10</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="math_constrain">
+              <value name="VALUE">
+                <shadow type="math_number">
+                  <field name="NUM">50</field>
+                </shadow>
+              </value>
+              <value name="LOW">
+                <shadow type="math_number">
+                  <field name="NUM">1</field>
+                </shadow>
+              </value>
+              <value name="HIGH">
+                <shadow type="math_number">
+                  <field name="NUM">100</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="math_random_int">
+              <value name="FROM">
+                <shadow type="math_number">
+                  <field name="NUM">1</field>
+                </shadow>
+              </value>
+              <value name="TO">
+                <shadow type="math_number">
+                  <field name="NUM">100</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="math_random_float"></block>
+          </category>
+          <category name="Text" colour="#5ba58c">
+            <block type="text">
+              <field name="TEXT"></field>
+            </block>
+            <block type="text_join">
+              <mutation items="2"></mutation>
+            </block>
+            <block type="text_append">
+              <field name="VAR" id="s~{y+bJ5zjEQ|.T1fRo|">item</field>
+              <value name="TEXT">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+            </block>
+            <block type ="lower"></block>
+            <block type="text_length">
+              <value name="VALUE">
+                <shadow type="text">
+                  <field name="TEXT">abc</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="text_isEmpty">
+              <value name="VALUE">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+            </block>
+            <block type="text_indexOf">
+              <field name="END">FIRST</field>
+              <value name="VALUE">
+                <block type="variables_get">
+                  <field name="VAR" id="f?Pz9|X`moD4t(C9iV35">text</field>
+                </block>
+              </value>
+              <value name="FIND">
+                <shadow type="text">
+                  <field name="TEXT">abc</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="capitalize"></block>
+            <block type="zfill"></block>
+            <block type="text_charAt">
+              <mutation at="true"></mutation>
+              <field name="WHERE">FROM_START</field>
+              <value name="VALUE">
+                <block type="variables_get">
+                  <field name="VAR" id="f?Pz9|X`moD4t(C9iV35">text</field>
+                </block>
+              </value>
+            </block>
+            <block type="text_getSubstring">
+              <mutation at1="true" at2="true"></mutation>
+              <field name="WHERE1">FROM_START</field>
+              <field name="WHERE2">FROM_START</field>
+              <value name="STRING">
+                <block type="variables_get">
+                  <field name="VAR" id="f?Pz9|X`moD4t(C9iV35">text</field>
+                </block>
+              </value>
+            </block>
+            <block type="text_changeCase">
+              <field name="CASE">UPPERCASE</field>
+              <value name="TEXT">
+                <shadow type="text">
+                  <field name="TEXT">abc</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="text_trim">
+              <field name="MODE">BOTH</field>
+              <value name="TEXT">
+                <shadow type="text">
+                  <field name="TEXT">abc</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="text_print">
+              <value name="TEXT">
+                <shadow type="text">
+                  <field name="TEXT">abc</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="text_prompt_ext">
+              <mutation type="TEXT"></mutation>
+              <field name="TYPE">TEXT</field>
+              <value name="TEXT">
+                <shadow type="text">
+                  <field name="TEXT">abc</field>
+                </shadow>
+              </value>
+            </block>
+          </category>
+          <category name="Lists" colour="#745ba5">
+            <block type="lists_create_with">
+              <mutation items="0"></mutation>
+            </block>
+            <block type="lists_create_with">
+              <mutation items="3"></mutation>
+            </block>
+            <block type="lists_repeat">
+              <value name="NUM">
+                <shadow type="math_number">
+                  <field name="NUM">5</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="lists_length"></block>
+            <block type="lists_isEmpty"></block>
+            <block type="lists_indexOf">
+              <field name="END">FIRST</field>
+              <value name="VALUE">
+                <block type="variables_get">
+                  <field name="VAR" id="doS#p[*SzoEAIAxDqMQW">list</field>
+                </block>
+              </value>
+            </block>
+            <block type = "list_com"></block>
+            <block type = "list_com2"></block>
+            <block type="lists_getIndex">
+              <mutation statement="false" at="true"></mutation>
+              <field name="MODE">GET</field>
+              <field name="WHERE">FROM_START</field>
+              <value name="VALUE">
+                <block type="variables_get">
+                  <field name="VAR" id="doS#p[*SzoEAIAxDqMQW">list</field>
+                </block>
+              </value>
+            </block>
+            <block type="lists_setIndex">
+              <mutation at="true"></mutation>
+              <field name="MODE">SET</field>
+              <field name="WHERE">FROM_START</field>
+              <value name="LIST">
+                <block type="variables_get">
+                  <field name="VAR" id="doS#p[*SzoEAIAxDqMQW">list</field>
+                </block>
+              </value>
+            </block>
+            <block type="lists_getSublist">
+              <mutation at1="true" at2="true"></mutation>
+              <field name="WHERE1">FROM_START</field>
+              <field name="WHERE2">FROM_START</field>
+              <value name="LIST">
+                <block type="variables_get">
+                  <field name="VAR" id="doS#p[*SzoEAIAxDqMQW">list</field>
+                </block>
+              </value>
+            </block>
+            <block type="lists_split">
+              <mutation mode="SPLIT"></mutation>
+              <field name="MODE">SPLIT</field>
+              <value name="DELIM">
+                <shadow type="text">
+                  <field name="TEXT">,</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="lists_sort">
+              <field name="TYPE">NUMERIC</field>
+              <field name="DIRECTION">1</field>
+            </block>
+          </category>
+          <category name="Colour" colour="#a5745b">
+            <block type="colour_picker">
+              <field name="COLOUR">#ff0000</field>
+            </block>
+            <block type="colour_random"></block>
+            <block type="colour_rgb">
+              <value name="RED">
+                <shadow type="math_number">
+                  <field name="NUM">100</field>
+                </shadow>
+              </value>
+              <value name="GREEN">
+                <shadow type="math_number">
+                  <field name="NUM">50</field>
+                </shadow>
+              </value>
+              <value name="BLUE">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="colour_blend">
+              <value name="COLOUR1">
+                <shadow type="colour_picker">
+                  <field name="COLOUR">#ff0000</field>
+                </shadow>
+              </value>
+              <value name="COLOUR2">
+                <shadow type="colour_picker">
+                  <field name="COLOUR">#3333ff</field>
+                </shadow>
+              </value>
+              <value name="RATIO">
+                <shadow type="math_number">
+                  <field name="NUM">0.5</field>
+                </shadow>
+              </value>
+            </block>
+          </category>
+          <sep></sep>
+          <category name="Variables" colour="#a55b80" custom="VARIABLE"></category>
+          <category name="Functions" colour="#995ba5" custom="PROCEDURE"></category>
+          <category name="Set" colour="#5ba58c">
+            <block type="add_set">
+              <field name="ACTION">add</field>
+              <value name="NAME">
+                <block type="variables_get">
+                  <field name="VAR" id="zdycPV34X(:}j;vwKqmv">set</field>
+                </block>
+              </value>
+              <value name="ELMNT">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+            </block>
+            <block type="copy_set">
+              <field name="ACTION">CLEAR</field>
+              <value name="SET">
+                <block type="variables_get">
+                  <field name="VAR" id="zdycPV34X(:}j;vwKqmv">set</field>
+                </block>
+              </value>
+            </block>
+            <block type="action_set">
+              <field name="ACTION">DIFFERENCE</field>
+              <value name="SET">
+                <block type="variables_get">
+                  <field name="VAR" id="zdycPV34X(:}j;vwKqmv">set</field>
+                </block>
+              </value>
+              <value name="INPUT">
+                <block type="variables_get">
+                  <field name="VAR" id="|41^N+kbPHs)8kg/bzeM">set2</field>
+                </block>
+              </value>
+            </block>
+            <block type="check_set">
+              <field name="ACTION">ISDISJOINT</field>
+              <value name="SET">
+                <block type="variables_get">
+                  <field name="VAR" id="zdycPV34X(:}j;vwKqmv">set</field>
+                </block>
+              </value>
+              <value name="INPUT">
+                <block type="variables_get">
+                  <field name="VAR" id="|41^N+kbPHs)8kg/bzeM">set2</field>
+                </block>
+              </value>
+            </block>
+          </category>
+          <category name="Dictionary" colour="#a55b80">
+            <block type="fromkeys">
+              <value name="DICTIONARY">
+                <block type="variables_get">
+                  <field name="VAR" id="4IZL?KWYBqi(*BZv6CO4">Dict</field>
+                </block>
+              </value>
+              <value name="KEY">
+                <block type="variables_get">
+                  <field name="VAR" id=")Qx);({7*lO8ud@T|5M*">list_keys</field>
+                </block>
+              </value>
+              <value name="VALUE">
+                <block type="math_number">
+                  <field name="NUM">4</field>
+                </block>
+              </value>
+            </block>
+            <block type="dic_clear">
+              <field name="ACTION">CLEAR</field>
+              <value name="DICTIONARY">
+                <block type="variables_get">
+                  <field name="VAR" id="4IZL?KWYBqi(*BZv6CO4">Dict</field>
+                </block>
+              </value>
+            </block>
+            <block type="dic_item">
+              <field name="ACTION">VALUES</field>
+              <value name="DICTIONARY">
+                <block type="variables_get">
+                  <field name="VAR" id="4IZL?KWYBqi(*BZv6CO4">Dict</field>
+                </block>
+              </value>
+            </block>
+            <block type="setdefault">
+              <value name="DICTIONARY">
+                <block type="variables_get">
+                  <field name="VAR" id="4IZL?KWYBqi(*BZv6CO4">Dict</field>
+                </block>
+              </value>
+              <value name="KEY">
+                <block type="text">
+                  <field name="TEXT"></field>
+                </block>
+              </value>
+              <value name="VALUE">
+                <block type="text">
+                  <field name="TEXT"></field>
+                </block>
+              </value>
+            </block>
+            <block type="update_dic">
+              <value name="DICTIONARY">
+                <block type="variables_get">
+                  <field name="VAR">Dict</field>
+                </block>
+              </value>
+              <value name="KEY">
+                <block type="text">
+                  <field name="TEXT"></field>
+                </block>
+              </value>
+              <value name="VALUE">
+                <block type="text">
+                  <field name="TEXT"></field>
+                </block>
+              </value>
+            </block>
+            <block type="get_dic">
+              <field name="KEY">GET</field>
+              <value name="DICTIONARY">
+                <block type="variables_get">
+                  <field name="VAR" id="4IZL?KWYBqi(*BZv6CO4">Dict</field>
+                </block>
+              </value>
+              <value name="KEY">
+                <block type="text">
+                  <field name="TEXT"></field>
+                </block>
+              </value>
+            </block>
+            <block type="access_key">
+              <value name="DICTIONARY">
+                <block type="variables_get">
+                  <field name="VAR" id="4IZL?KWYBqi(*BZv6CO4">Dict</field>
+                </block>
+              </value>
+              <value name="KEY">
+                <block type="text">
+                  <field name="TEXT"></field>
+                </block>
+              </value>
+            </block>
+          </category>
+          <sep></sep>
+          <category name="Keywords" colour="#9fa55b">
+            <block type="import_as">
+              <field name="MODULE">rpa</field>
+              <field name="NAME">r</field>
+            </block>
+            <block type="import">
+              <field name="MODULE">pandas</field>
+            </block>
+            <block type="with_as">
+              <field name="NAME">file</field>
+            </block>
+            <block type="from_block">
+              <field name="MODULE">datetime</field>
+              <field name="NAME">time</field>
+            </block>
+            <block type= "in"></block>
+          </category>
+          <category name="Build In" colour="#5ba55b">
+            <block type="float_block">
+              <value name="OBJECT">
+                <block type="text">
+                  <field name="TEXT"></field>
+                </block>
+              </value>
+            </block>
+            <block type="range">
+              <value name="START">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+              <value name="STOP">
+                <shadow type="math_number">
+                  <field name="NUM">12</field>
+                </shadow>
+              </value>
+              <value name="STEP">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="maximum_block">
+              <value name="LIST">
+                <block type="variables_get">
+                  <field name="VAR" id="HW7Ps3Aiab1RfwI[ncVW">list</field>
+                </block>
+              </value>
+            </block>
+            <block type="insitanceof_block"></block>
+            <block type="reverse_block">
+              <value name="LIST">
+                <block type="variables_get">
+                  <field name="VAR" id="HW7Ps3Aiab1RfwI[ncVW">list</field>
+                </block>
+              </value>
+            </block>
+            <block type="next">
+            </block>
+            <block type="enumarate_block">
+              <field name="VALUE_START">0</field>
+              <value name="LIST">
+                <block type="variables_get">
+                  <field name="VAR" id="HW7Ps3Aiab1RfwI[ncVW">list</field>
+                </block>
+              </value>
+              <value name="START">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="min_block">
+              <value name="LIST">
+                <block type="variables_get">
+                  <field name="VAR" id="HW7Ps3Aiab1RfwI[ncVW">list</field>
+                </block>
+              </value>
+            </block>
+            <block type="power">
+              <value name="BASE">
+                <shadow type="math_number">
+                  <field name="NUM">2</field>
+                </shadow>
+              </value>
+              <value name="EXP">
+                <shadow type="math_number">
+                  <field name="NUM">1</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="int_block">
+              <value name="OBJECT">
+                <block type="text">
+                  <field name="TEXT"></field>
+                </block>
+              </value>
+            </block>
+            <block type="filter">
+              <value name="LIST">
+                <block type="variables_get">
+                  <field name="VAR" id="HW7Ps3Aiab1RfwI[ncVW">list</field>
+                </block>
+              </value>
+            </block>
+            <block type="create_dict"></block>
+          </category>
+          <sep></sep>
+          <category name="Dataframe" colour="#9fa55b">
+            <block type="series_pandas">
+              <field name="NAME">pd</field>
+            </block>
+            <block type="read_csv">
+              <field name="NAME">pd</field>
+              <value name="DATAFRAME">
+                <block type="text">
+                  <field name="TEXT"></field>
+                </block>
+              </value>
+            </block>
+            <block type="read_excel">
+              <field name="NAME">pd</field>
+              <value name="DATAFRAME">
+                <block type="text">
+                  <field name="TEXT"></field>
+                </block>
+              </value>
+            </block>
+            <block type="dataframe_pandas">
+              <field name="NAME">pd</field>
+            </block>
+            <block type="head_tail">
+              <field name="INPUT">head()</field>
+              <value name="DATAFRAME">
+                <block type="variables_get">
+                  <field name="VAR" id="?g#bF_^Lkp@-325V#{_L">df</field>
+                </block>
+              </value>
+            </block>
+            <block type="index_col">
+              <field name="INPUT">columns</field>
+              <value name="DATAFRAME">
+                <block type="variables_get">
+                  <field name="VAR" id="?g#bF_^Lkp@-325V#{_L">df</field>
+                </block>
+              </value>
+            </block>
+            <block type="describe_df">
+              <field name="ACTION">describe</field>
+              <value name="DATAFRAME">
+                <block type="variables_get">
+                  <field name="VAR" id="?g#bF_^Lkp@-325V#{_L">df</field>
+                </block>
+              </value>
+            </block>
+            <block type="empty">
+              <value name="DATAFRAME">
+                <block type="variables_get">
+                  <field name="VAR" id="?g#bF_^Lkp@-325V#{_L">df</field>
+                </block>
+              </value>
+            </block>
+            <block type='axes'>
+              
+            </block>
+            <block type="get_df2d">
+              <value name="NAME">
+                <block type="variables_get">
+                  <field name="VAR" id="?g#bF_^Lkp@-325V#{_L">df</field>
+                </block>
+              </value>
+              <value name="ROW">
+                <block type="text">
+                  <field name="TEXT">label</field>
+                </block>
+              </value>
+            </block>
+            <block type="iat">
+              <value name="DATAFRAME">
+                <block type="variables_get">
+                  <field name="VAR" id="?g#bF_^Lkp@-325V#{_L">df</field>
+                </block>
+              </value>
+              <value name="ROW">
+                <block type="math_number">
+                  <field name="NUM">0</field>
+                </block>
+              </value>
+              <value name="COL">
+                <block type="math_number">
+                  <field name="NUM">0</field>
+                </block>
+              </value>
+            </block>
+            <block type="iloc_slice">
+              <value name="DATAFRAME">
+                <block type="variables_get">
+                  <field name="VAR" id="?g#bF_^Lkp@-325V#{_L">df</field>
+                </block>
+              </value>
+              <value name="START">
+                <block type="math_number">
+                  <field name="NUM">0</field>
+                </block>
+              </value>
+              <value name="STOP">
+                <block type="math_number">
+                  <field name="NUM">0</field>
+                </block>
+              </value>
+            </block>
+            <block type="loc">
+              <value name="DATAFRAME">
+                <block type="variables_get">
+                  <field name="VAR" id="?g#bF_^Lkp@-325V#{_L">df</field>
+                </block>
+              </value>
+              <value name="ROW">
+                <block type="text">
+                  <field name="TEXT">label</field>
+                </block>
+              </value>
+            </block>
+            <block type="iloc_row_col">
+              <value name="DATAFRAME">
+                <block type="variables_get">
+                  <field name="VAR" >df</field>
+                </block>
+              </value>
+            </block>
+            <block type="slice_df">
+              <field name="START"></field>
+              <field name="END"></field>
+              <value name="DATAFRAME">
+                <block type="variables_get">
+                  <field name="VAR" id="?g#bF_^Lkp@-325V#{_L">df</field>
+                </block>
+              </value>
+            </block>
+            <block type="astype">
+              <field name="COPY">True</field>
+              <field name="ERRORS">raise</field>
+              <value name="NAME">
+                <block type="variables_get">
+                  <field name="VAR" id="?g#bF_^Lkp@-325V#{_L">df</field>
+                </block>
+              </value>
+              <value name="DTYPE">
+                <block type="text">
+                  <field name="TEXT"></field>
+                </block>
+              </value>
+            </block>
+            <block type="set_df_to">
+              <value name="NAME">
+                <block type="variables_get">
+                  <field name="VAR" id="?g#bF_^Lkp@-325V#{_L">df</field>
+                </block>
+              </value>
+              <value name="ROW">
+                <block type="math_number">
+                  <field name="NUM">0</field>
+                </block>
+              </value>
+            </block>
+            <block type="set_df_label">
+              <value name="NAME">
+                <block type="variables_get">
+                  <field name="VAR" id="?g#bF_^Lkp@-325V#{_L">df</field>
+                </block>
+              </value>
+              <value name="ROW">
+                <block type="text">
+                  <field name="TEXT">label</field>
+                </block>
+              </value>
+            </block>
+            <block type="insert">
+              <field name="DUPLICATE">True</field>
+              <value name="DATAFRAME">
+                <block type="variables_get">
+                  <field name="VAR" id="?g#bF_^Lkp@-325V#{_L">df</field>
+                </block>
+              </value>
+              <value name="LOC">
+                <block type="math_number">
+                  <field name="NUM">0</field>
+                </block>
+              </value>
+              <value name="COL">
+                <block type="text">
+                  <field name="TEXT">label</field>
+                </block>
+              </value>
+              <value name="VALUE">
+                <block type="lists_create_with">
+                  <mutation items="3"></mutation>
+                  <value name="ADD0">
+                    <block type="math_number">
+                      <field name="NUM">6</field>
+                    </block>
+                  </value>
+                  <value name="ADD1">
+                    <block type="math_number">
+                      <field name="NUM">8</field>
+                    </block>
+                  </value>
+                  <value name="ADD2">
+                    <block type="math_number">
+                      <field name="NUM">0</field>
+                    </block>
+                  </value>
+                </block>
+              </value>
+            </block>
+          </category>
+          <category name="File" colour="#9fa55b">
+            <block type="read_file">
+              <field name="SIZE_INPUT">-1</field>
+              <value name="FILE">
+                <block type="variables_get">
+                  <field name="VAR" id="=fs@WRWgwiu3!^`=3g?1">file_var</field>
+                </block>
+              </value>
+            </block>
+            <block type="open_file">
+              <field name="MODE">r</field>
+              <value name="FILE_NAME">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+            </block>
+            <block type="close_file">
+              <value name="FILE">
+                <block type="variables_get">
+                  <field name="VAR" id="=fs@WRWgwiu3!^`=3g?1">file_var</field>
+                </block>
+              </value>
+            </block>
+            <block type="write_file">
+              <value name="FILE">
+                <block type="variables_get">
+                  <field name="VAR" id="=fs@WRWgwiu3!^`=3g?1">file_var</field>
+                </block>
+              </value>
+              <value name="TEXT">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+            </block>
+            <block type = "csv_reader"></block>
+          </category>
+          <sep></sep>
+          <category name="Core Functions" colour="#5b67a5">
+            <block type="init_close_pack_update">
+              <field name="NAME">r</field>
+              <field name="FUNCTION">init()</field>
+            </block>
+            <block type="initialize2">
+              <field name="NAME">r</field>
+              <value name="BOOLEAN">
+                <shadow type="logic_boolean">
+                  <field name="BOOL">TRUE</field>
+                </shadow>
+              </value>
+              <value name="BOOLEAN0">
+                <shadow type="logic_boolean">
+                  <field name="BOOL">TRUE</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="initialize">
+              <field name="NAME">r</field>
+              <field name="ACTION">visual_automation</field>
+              <value name="BOOLEAN">
+                <shadow type="logic_boolean">
+                  <field name="BOOL">TRUE</field>
+                </shadow>
+              </value>
+            </block>
+          </category>
+          <category name="Basic Functions" colour="#a55b80">
+            <block type="url">
+              <field name="NAME">r</field>
+              <value name="URL">
+                <block type="text">
+                  <field name="TEXT"></field>
+                </block>
+              </value>
+            </block>
+            <block type="click">
+              <field name="NAME">r</field>
+              <field name="INPUT">click</field>
+              <value name="ELEMENT_IDENTIFIER">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+            </block>
+            <block type="click1">
+              <field name="NAME">r</field>
+              <field name="ACTION">click</field>
+              <value name="X">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+              <value name="Y">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="type1">
+              <field name="NAME">r</field>
+              <value name="ELEMENT_IDENTIFIER">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+              <value name="TEXT_TO_TYPE">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+            </block>
+            <block type="type">
+              <field name="NAME">r</field>
+              <value name="X">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+              <value name="Y">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+              <value name="TEXT_TO_TYPE">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+            </block>
+            <block type="snap_dump_write">
+              <field name="NAME">r</field>
+              <field name="ACTION">snap</field>
+              <value name="ELEMENT_IDENTIFIER">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+              <value name="FILENAME_TO_SAVE">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+            </block>
+            <block type="read1">
+              <field name="NAME">r</field>
+              <value name="ELEMENT_IDENTIFIER">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+            </block>
+            <block type="read">
+              <field name="NAME">r</field>
+              <value name="X1">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+              <value name="Y1">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+              <value name="X2">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+              <value name="Y2">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="load">
+              <field name="NAME">r</field>
+              <value name="FILENAME_TO_LOAD">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+            </block>
+            <block type="ask">
+              <field name="NAME">r</field>
+              <value name="TEXT_TO_PROMPT">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+            </block>
+            <block type="select">
+              <field name="NAME">r</field>
+              <value name="ELEMENT_IDENTIFIER">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+              <value name="OPTION_VALUE">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+            </block>
+            <block type="select1">
+              <field name="NAME">r</field>
+              <value name="X">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+              <value name="Y">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+              <value name="OPTION_VALUE">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+            </block>
+            <block type="select2">
+              <field name="NAME">r</field>
+              <value name="X1">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+              <value name="Y1">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+              <value name="X2">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+              <value name="Y2">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+            </block>
+          </category>
+          <category name="Pro Functions" colour="#a5745b">
+            <block type="run_dom">
+              <field name="NAME">r</field>
+              <field name="ACTION">run</field>
+              <value name="COMMAND_TO_RUN">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+            </block>
+            <block type="download_unzip_frame">
+              <field name="NAME">r</field>
+              <field name="ACTION">download</field>
+              <value name="INPUT">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+              <value name="FILENAME_TO_SAVE">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+            </block>
+            <block type="table_upload">
+              <field name="NAME">r</field>
+              <field name="ACTION">table</field>
+              <value name="TABLE_NUMBER">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+              <value name="FILENAME_TO_SAVE">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+            </block>
+            <block type="timeout">
+              <field name="NAME">r</field>
+            </block>
+            <block type="keyboard">
+              <field name="NAME">r</field>
+              <value name="KEYS_AND_MODIFIER">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+            </block>
+            <block type="telegram">
+              <field name="NAME">r</field>
+              <value name="TELEGRAM_ID">
+                <shadow type="math_number">
+                  <field name="NUM">0</field>
+                </shadow>
+              </value>
+              <value name="TEXT_TO_SEND">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+            </block>
+            <block type="vision">
+              <field name="NAME">r</field>
+              <value name="COMMAND_TO_RUN">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+            </block>
+            <block type="wait">
+              <field name="NAME">r</field>
+              <field name="TIME">5</field>
+            </block>
+            <block type="mouse">
+              <field name="NAME">r</field>
+              <field name="EVENT">down</field>
+            </block>
+            <block type="popup">
+              <field name="NAME">r</field>
+              <value name="STRING_IN_URL">
+                <block type="text">
+                  <field name="TEXT"></field>
+                </block>
+              </value>
+            </block>
+          </category>
+          <category name="Helper Functions" colour="#5ba58c">
+            <block type="clipboard">
+              <field name="NAME">r</field>
+            </block>
+            <block type="get_text">
+              <field name="NAME">r</field>
+              <value name="SOURCE_TEXT">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+              <value name="LEFT">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+              <value name="RIGHT">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+              <value name="COUNT">
+                <shadow type="math_number">
+                  <field name="NUM">1</field>
+                </shadow>
+              </value>
+            </block>
+            <block type="del_chars">
+              <field name="NAME">r</field>
+              <value name="SOURCE_TEXT">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+              <value name="CHARACTERS">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+            </block>
+            <block type="title_text">
+              <field name="NAME">r</field>
+              <field name="ACTION">title()</field>
+            </block>
+            <block type="exist_present">
+              <field name="NAME">r</field>
+              <field name="ACTION">exist()</field>
+              <value name="ELEMENT_IDENTIFIER">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+            </block>
+            <block type="timer">
+              <field name="NAME">r</field>
+            </block>
+            <block type="mouse_event">
+              <field name="NAME">r</field>
+              <field name="ACTION">mouse_xy()</field>
+            </block>
+            <block type="count">
+              <field name="NAME">r</field>
+              <value name="TABLE_NUMBER">
+                <shadow type="text">
+                  <field name="TEXT"></field>
+                </shadow>
+              </value>
+            </block>
+          </category>
+          <sep></sep>
+          <category name="Connector" colour="#5b67a5">
+            <block type="connect_block"></block>
+          </category>
+        </xml>
+      </div>
+      <div class="code-viewer">
+        <textarea style="height: 100%; width: 100%;" id= "textarea"></textarea>
+      </div>
+    </main>
+    
+    </div>
+    
+    <script src="https://unpkg.com/blockly"></script>
+    <script src="https://unpkg.com/blockly/python_compressed.js"></script>
+    <script src="scripts/blocks/basicFunc_blocks.js"></script>
+    <script src="scripts/blocks/buildIn_blocks.js"></script>
+    <script src="scripts/blocks/coreFunc_blocks.js"></script>
+    <script src="scripts/blocks/connector_block.js"></script>
+    <script src="scripts/blocks/dataFrame_blocks.js"></script>
+    <script src="scripts/blocks/dictionary_blocks.js"></script>
+    <script src="scripts/blocks/file_blocks.js"></script>
+    <script src="scripts/blocks/helperFunc_blocks.js"></script>
+    <script src="scripts/blocks/keywords_blocks.js"></script>
+    <script src="scripts/blocks/proFunc_blocks.js"></script>
+    <script src="scripts/blocks/set_blocks.js"></script>
+    <script src="scripts/blocks/strings_blocks.js"></script>
+    <script src="scripts/generators/basicFunc_generator.js"></script>
+    <script src="scripts/generators/buildIn_generator.js"></script>
+    <script src="scripts/generators/coreFunc_generator.js"></script>
+    <script src="scripts/generators/connector_generator.js"></script>
+    <script src="scripts/generators/dataFrame_generator.js"></script>
+    <script src="scripts/generators/dictionary_generator.js"></script>
+    <script src="scripts/generators/file_generator.js"></script>
+    <script src="scripts/generators/helperFunc_generator.js"></script>
+    <script src="scripts/generators/keywords_generator.js"></script>
+    <script src="scripts/generators/proFunc_generator.js"></script>
+    <script src="scripts/generators/set_generator.js"></script>
+    <script src="scripts/generators/strings_generator.js"></script>
+    <script src="scripts/main.js"></script>
+      
+    <script>
+      let workspace = Blockly.getMainWorkspace();
+      function showCode(){
+        var code = Blockly.Python.workspaceToCode(workspace);
+        document.getElementById("textarea").value = code;
+      }
+      workspace.addChangeListener(showCode);
+
+      function exportCode(){
+        var name = window.prompt("File name: ");
+        var filename = name +".py";
+        var code = Blockly.Python.workspaceToCode(workspace);
+        var file = new Blob([code], {type: "txt"});
+        if (window.navigator.msSaveOpenBlob) {
+          window.navigator.msSaveOpenBlob(file, filename);
+        }
+        else{
+          var a = document.createElement("a"),
+          url = URL.createObjectURL(file);
+          a.href =url;
+          a.download = filename;
+          document.body.appendChild(a);
+          a.click();
+          setTimeout(function(){
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+         }, 0);
+            }
+        }
+
+      function exportXml(){
+        var xml = Blockly.Xml.workspaceToDom(workspace);
+        var xml_text = Blockly.Xml.domToText(xml);
+        var name = window.prompt("File name: ");
+        var filename = name +".xml";
+        var file = new Blob([xml_text], {type: "txt"});
+        if (window.navigator.msSaveOpenBlob) {
+          window.navigator.msSaveOpenBlob(file, filename);
+       }
+        else{
+          var a = document.createElement("a"),
+          url = URL.createObjectURL(file);
+          a.href =url;
+          a.download = filename;
+          document.body.appendChild(a);
+          a.click();
+          setTimeout(function(){
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+          }, 0);
+        }
+      }
+
+      (function(){
+        'user strict'; 
+        var dialogButton = document.querySelector('#importButton');
+        var dialog = document.querySelector('#dialog');
+        if (!dialog.showModel){
+          dialogPolyfill.registerDialog(dialog);
+        }
+        dialogButton.addEventListener('click', function(){
+          dialog.showModal();
+        });
+        dialog.querySelector('button:not([disabled])').addEventListener('click', function(){
+          dialog.close();
+        });
+      }());
+
+      document.getElementById("myFile").addEventListener("change", function(){
+        var fr = new FileReader();
+        fr.onload = function(){
+          document.getElementById('xmltextarea')
+                        .textContent=fr.result;
+            }
+              
+            fr.readAsText(this.files[0]);
+        })
+
+      function importXml(){
+        var xml_text = document.getElementById("xmltextarea").value;
+        var xml = Blockly.Xml.textToDom(xml_text);
+        Blockly.Xml.domToWorkspace(xml, workspace);
+      }
+    </script>
+  </body>
+</html>

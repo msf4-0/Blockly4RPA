@@ -9,7 +9,7 @@ Blockly.Blocks['url'] = {
     this.setOutput(true, null);
     this.setColour(345);
  this.setTooltip("url()");
- this.setHelpUrl("https://docs.google.com/document/d/138DjwJY7Tvp9NhruQMT2dxvbEFcYb5vHvg0Kp-BkHtE/edit#heading=h.h7r4ah9gy1ox");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rurlurl");
   }
 };
 
@@ -50,7 +50,7 @@ Blockly.Blocks['click1'] = {
     }
     return tooltip;
    });
-  this.setHelpUrl("https://docs.google.com/document/d/138DjwJY7Tvp9NhruQMT2dxvbEFcYb5vHvg0Kp-BkHtE/edit#heading=h.oxnqj9y9hiig");
+  this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rclickelement_identifier-rrclickelement_identifier-rdclickelement_identifier-rhoverelement_identifier");
   }
 };
 
@@ -72,7 +72,7 @@ Blockly.Blocks['type'] = {
     this.setNextStatement(true, null);
     this.setColour(345);
  this.setTooltip("type() with coordinate");
- this.setHelpUrl("");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rtypeelement_identifier-text_to_type");
   }
 };
 
@@ -90,7 +90,7 @@ Blockly.Blocks['type1'] = {
     this.setNextStatement(true, null);
     this.setColour(345);
  this.setTooltip("type()");
- this.setHelpUrl("");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rtypeelement_identifier-text_to_type");
   }
 };
 
@@ -110,7 +110,7 @@ Blockly.Blocks['select'] = {
     this.setNextStatement(true, null);
     this.setColour(345);
  this.setTooltip("select()");
- this.setHelpUrl("");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rselectelement_identifier-option_value");
   }
 };
 
@@ -133,7 +133,7 @@ Blockly.Blocks['select1'] = {
     this.setNextStatement(true, null);
     this.setColour(345);
  this.setTooltip("select() with xy coordinate");
- this.setHelpUrl("");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rselectelement_identifier-option_value");
   }
 };
 
@@ -160,7 +160,7 @@ Blockly.Blocks['select2'] = {
     this.setNextStatement(true, null);
     this.setColour(345);
  this.setTooltip("select() with x1y1 x2y2 coordinate");
- this.setHelpUrl("");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rselectelement_identifier-option_value");
   }
 };
 
@@ -185,7 +185,7 @@ Blockly.Blocks['read'] = {
     this.setOutput(true, "String");
     this.setColour(345);
  this.setTooltip("read() with x1y1 x2y2 coordinate");
- this.setHelpUrl("");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rreadelement_identifier");
   }
 };
 
@@ -200,7 +200,7 @@ Blockly.Blocks['read1'] = {
     this.setOutput(true, "String");
     this.setColour(345);
  this.setTooltip("read()");
- this.setHelpUrl("");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rreadelement_identifier");
   }
 };
 
@@ -215,7 +215,7 @@ Blockly.Blocks['load'] = {
     this.setOutput(true, null);
     this.setColour(345);
  this.setTooltip("load()");
- this.setHelpUrl("");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rloadfilename_to_load");
   }
 };
 
@@ -230,7 +230,7 @@ Blockly.Blocks['ask'] = {
     this.setOutput(true, null);
     this.setColour(345);
  this.setTooltip("ask()");
- this.setHelpUrl("");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rasktext_to_prompt");
   }
 };
 
@@ -266,7 +266,7 @@ Blockly.Blocks['click'] = {
       }
       return tooltip;
      });
- this.setHelpUrl("https://docs.google.com/document/d/138DjwJY7Tvp9NhruQMT2dxvbEFcYb5vHvg0Kp-BkHtE/edit#heading=h.oxnqj9y9hiig");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rclickelement_identifier-rrclickelement_identifier-rdclickelement_identifier-rhoverelement_identifier");
   }
 };
 
@@ -304,6 +304,6 @@ Blockly.Blocks['snap_dump_write'] = {
       }
       return tooltip;
      });
- this.setHelpUrl("");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rsnapelement_identifier-filename_to_save-rdumptext_to_dump-filename_to_save-rwritetext_to_write-filename_to_save");
   }
 };

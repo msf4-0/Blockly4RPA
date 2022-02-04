@@ -1,5 +1,7 @@
 # Blockly4RPA
   **Blockly4RPA** is a drag and drop Web-Based Low Code User Interface (UI) or Robotic Process Automation (RPA) based on TagUI. Each of it blocks represent a command in python, which can be later run into any IDE. 
+  ![Blockly4RPA_UI](https://user-images.githubusercontent.com/88389254/152508781-9bd835c6-2cc7-4768-ae4f-aa64408a04f8.png)
+
 
 ## Instal Blockly locally 
 To have Blockly4Rpa running locally it will reqquired you to install dependencies software 
@@ -20,3 +22,11 @@ Your are now set to write your own flow
 
 ## How to use Blockly4RPA
 Now that all it set, all it left it building your rpa flow, to do so some basic knowledge of python and rpa it essential. However each blocks most of the blocks in the toolbar in web UI have and hint on how to use it which it showed when the mouse is on it and if need more information you can drag the block in the workspace and right click then click on help. 
+
+https://user-images.githubusercontent.com/88389254/152506899-e07d9534-7908-4182-ac3e-2883062a175d.mp4
+
+https://user-images.githubusercontent.com/88389254/152507635-b30364f4-e56d-4b5a-9f30-c427b4a57b79.mp4
+
+
+
+

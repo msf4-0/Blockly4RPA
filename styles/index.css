@@ -1,0 +1,55 @@
+main {
+  width: 100%;
+  position: relative;
+  float: left;
+  box-sizing: border-box;
+}
+
+
+.header {
+    background-color: rgb(44, 50, 129);
+    width: 100%;
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+  }
+
+.h1 {
+    position: relative;
+    margin: auto;
+    color: rgba(248, 237, 237, 0.979);
+    font-size: 1.8em;
+    line-height: 2.4em;
+    background-color: blueviolet;
+}
+
+.button {
+  width: 80px;
+  height: 50px;
+  position: relative;
+  background-color: cornflowerblue;
+  color: #fff;
+  text-align: center;
+  float: right;
+  
+}
+
+.blockly-editor {
+  background-color: rgb(202, 198, 198);
+  position: relative;
+  width: 60%;
+  height: 600px;
+  float: left;
+  margin: auto;
+  
+}
+
+.code-viewer {
+  background-color: rgb(245, 243, 243);
+  position: relative;
+  width: 40%;
+  height: 600px;
+  float: left;
+  margin: auto;
+  
+}
+

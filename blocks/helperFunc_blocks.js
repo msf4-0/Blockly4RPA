@@ -64,7 +64,7 @@ Blockly.Blocks['mouse_event'] = {
     this.setColour(180);
     var thisBlock = this;
     this.setTooltip(function(){
-      var action = thisBlock.getFieldValue('Action');
+      var action = thisBlock.getFieldValue('ACTION');
       var tooltip = '';
       switch(action){
         case 'mouse_xy()':
@@ -134,7 +134,7 @@ Blockly.Blocks['exist_present'] = {
     this.setColour(180);
     var thisBlock = this;
     this.setTooltip(function(){
-      var action = thisBlock.getFieldValue('Action');
+      var action = thisBlock.getFieldValue('ACTION');
       var tooltip = '';
       switch(action){
         case 'exist()':

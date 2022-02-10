@@ -22,6 +22,7 @@ To have Blockly4Rpa running locally it will reqquired you to install dependencie
     > Fig2 command prompt after node-red is run locally 
     
     * now you can copy the url highlighted in white and paste into your browser to have node-red running 
+    * then click on deploy btton to deploy the Node-red Dashboard UI
     * **Do not close the command prompt doing so will stop the flow of node red**    
 
 Your are now set to write your own flow. 

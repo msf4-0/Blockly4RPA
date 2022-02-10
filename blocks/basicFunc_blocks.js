@@ -319,4 +319,6 @@ Blockly.Blocks['snap_dump_write'] = {
       }
       return url;
      });
+  }
+};
  

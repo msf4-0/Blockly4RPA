@@ -6,6 +6,6 @@ Blockly.Blocks['connect_block'] = {
     this.setNextStatement(true, null);
     this.setColour(230);
  this.setTooltip("help to connect blocks");
- this.setHelpUrl("");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Connector#connector-block");
   }
 };

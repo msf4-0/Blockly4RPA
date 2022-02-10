@@ -12,8 +12,39 @@ Blockly.Blocks['initialize'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
- this.setTooltip("init()");
- this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rinitvisual_automation--false-chrome_browser--true-rinitvisual_automationchrome_browserturbo--false");
+ var thisBlock = this;
+    var func = thisBlock.getFieldValue('FUNCTION');
+    this.setTooltip(function(){
+      var tooltip = '';
+      switch(func){
+        case 'visual_automation':
+          tooltip = 'init(visual_automation)';
+          break;
+        case 'chrome_browser':
+          tooltip = 'init(chrome_browser)';
+          break;
+        case 'turbo_mode':
+          tooltip = 'init(turbo_mode)';
+          break;
+      }
+    return tooltip;
+    });
+    this.setHelpUrl(function(){
+      var url = '';
+      switch(func){
+        switch(func){
+        case 'visual_automation':
+          url = "https://github.com/msf4-0/Blockly4RPA/wiki/Core-Functions#visual-automation";
+          break;
+        case 'chrome_browser':
+          url = "https://github.com/msf4-0/Blockly4RPA/wiki/Core-Functions#chrome-browser";
+          break;
+        case 'turbo_mode':
+          url = "https://github.com/msf4-0/Blockly4RPA/wiki/Core-Functions#turbo-mode";
+          break;
+      }
+    return url;
+    });
   }
 };
 
@@ -32,7 +63,7 @@ Blockly.Blocks['initialize2'] = {
     this.setNextStatement(true, null);
     this.setColour(230);
  this.setTooltip("init()");
- this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rinitvisual_automation--false-chrome_browser--true-rinitvisual_automationchrome_browserturbo--false");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Core-Functions#initialize-browser-and-visual-automatisation");
   }
 };
 
@@ -46,8 +77,8 @@ Blockly.Blocks['init_close_pack_update'] = {
     this.setNextStatement(true, null);
     this.setColour(230);
     var thisBlock = this;
+    var func = thisBlock.getFieldValue('FUNCTION');
     this.setTooltip(function(){
-      var func = thisBlock.getFieldValue('FUNCTION');
       var tooltip = '';
       switch(func){
         case 'init()':
@@ -56,12 +87,30 @@ Blockly.Blocks['init_close_pack_update'] = {
         case 'close()':
           tooltip = 'close()';
           break;
+        case 'pack()':
+          tooltip = 'pack()';
+          break;
         case 'update()':
           tooltip = 'update()';
           break;
       }
     return tooltip;
     });
-    this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rinitrcloserpackrupdate");
+    this.setHelpUrl(function(){
+      var url = '';
+      switch(func){
+        case 'init()':
+          url = "https://github.com/msf4-0/Blockly4RPA/wiki/Core-Functions#initialize";
+          break;
+        case 'close()':
+          url = "https://github.com/msf4-0/Blockly4RPA/wiki/Core-Functions#close-rpa";
+          break;
+        case 'update()':
+        case 'pack()':
+          url = "https://github.com/msf4-0/Blockly4RPA/wiki/Core-Functions#deploy--update";
+          break;
+      }
+    return url;
+    });
   }
 };

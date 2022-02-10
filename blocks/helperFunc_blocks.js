@@ -9,7 +9,7 @@ Blockly.Blocks['clipboard'] = {
     this.setOutput(true, "String");
     this.setColour(180);
  this.setTooltip("clipboard()");
- this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rclipboardtext_to_put");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Helper-Functions#write-in-the-clipboard");
   }
 };
 
@@ -32,7 +32,7 @@ Blockly.Blocks['get_text'] = {
     this.setOutput(true, "String");
     this.setColour(180);
  this.setTooltip("get_text()");
- this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rget_textsource_text-left-right-count--1");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Helper-Functions#get-text");
   }
 };
 
@@ -49,7 +49,7 @@ Blockly.Blocks['del_chars'] = {
     this.setOutput(true, "String");
     this.setColour(180);
  this.setTooltip("del_chars()");
- this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rdel_charssource_text-characters");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Helper-Functions#delete-character");
   }
 };
 
@@ -79,7 +79,7 @@ Blockly.Blocks['mouse_event'] = {
       }
       return tooltip;
     });
-    this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rmouse_xy-rmouse_x-rmouse_y");
+    this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Helper-Functions#mouse-coordinates");
   }
 };
 
@@ -105,7 +105,7 @@ Blockly.Blocks['title_text'] = {
       }
       return tooltip;
     });
-  this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rtitle-rtext");
+  this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Helper-Functions#page-title-and-text");
   }
 };
 
@@ -118,7 +118,7 @@ Blockly.Blocks['timer'] = {
     this.setOutput(true, "Number");
     this.setColour(180);
  this.setTooltip("timer()");
- this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rtimer");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Helper-Functions#timer");
   }
 };
 
@@ -146,7 +146,7 @@ Blockly.Blocks['exist_present'] = {
       }
       return tooltip;
     });
- this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rexistelement_identifier-presentelement_identifier");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Helper-Functions#existing-and-present-element");
   }
 };
 
@@ -160,6 +160,6 @@ Blockly.Blocks['count'] = {
     this.setOutput(true, "Number");
     this.setColour(180);
  this.setTooltip("count()");
- this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rcountelement_identifier");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Helper-Functions#count-element");
   }
 };

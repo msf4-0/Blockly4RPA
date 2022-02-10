@@ -12,7 +12,7 @@ Blockly.Blocks['telegram'] = {
     this.setNextStatement(true, null);
     this.setColour(15);
  this.setTooltip("telegram()");
- this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rtelegramtelegram_id-text_to_send");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Pro-Functions#telegram");
   }
 };
 
@@ -28,7 +28,7 @@ Blockly.Blocks['keyboard'] = {
     this.setNextStatement(true, null);
     this.setColour(15);
  this.setTooltip("keyboard()");
- this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rkeyboard_keys_and_modifiers-_");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Pro-Functions#keyboard-key");
   }
 };
 
@@ -44,7 +44,7 @@ Blockly.Blocks['mouse'] = {
     this.setNextStatement(true, null);
     this.setColour(15);
  this.setTooltip("mouse()");
- this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rmousedown-or-up");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Pro-Functions#mouse-move");
   }
 };
 
@@ -62,7 +62,7 @@ Blockly.Blocks['wait'] = {
     this.setNextStatement(true, null);
     this.setColour(15);
  this.setTooltip("wait()");
- this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rwaitdelay_in_seconds");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Pro-Functions#wait");
   }
 };
 
@@ -79,7 +79,7 @@ Blockly.Blocks['popup'] = {
     this.setNextStatement(true, null);
     this.setColour(15);
  this.setTooltip("popup()");
- this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rpopupstring_in_url");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Pro-Functions#popup");
   }
 };
 
@@ -95,7 +95,7 @@ Blockly.Blocks['vision'] = {
     this.setNextStatement(true, null);
     this.setColour(15);
  this.setTooltip("vision()");
- this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rvisioncommand_to_run");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Pro-Functions#run-python");
   }
 };
 
@@ -112,7 +112,7 @@ Blockly.Blocks['timeout'] = {
     this.setNextStatement(true, null);
     this.setColour(15);
  this.setTooltip("timeout()");
- this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rtimeouttimeout_in_seconds");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Pro-Functions#timeout");
   }
 };
 
@@ -144,7 +144,7 @@ Blockly.Blocks['table_upload'] = {
       }
       return tooltip;
     });
- this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rtabletable-number-or-xpath-filename_to_save-ruploadelement_identifier-filename_to_upload");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Pro-Functions#create-csv--upload-website");
   }
 };
 
@@ -173,7 +173,7 @@ Blockly.Blocks['run_dom'] = {
       }
       return tooltip;
     });
- this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rruncommand_to_run-rdomstatement_to_run");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Pro-Functions#run-in-cmd-prompt--run-dom");
   }
 };
 
@@ -209,6 +209,6 @@ Blockly.Blocks['download_unzip_frame'] = {
       }
       return tooltip;
      });
- this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/RPA-blocks#rdownloaddownload_url-filename_to_save-runzipfile_to_unzip-unzip_location-rframemain_frame-id-or-name-sub_frame");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Pro-Functions#download--unzip--rframemain_frame-id-or-name-sub_frame");
   }
 };

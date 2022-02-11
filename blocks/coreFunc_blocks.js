@@ -47,6 +47,8 @@ Blockly.Blocks['initialize'] = {
     });
   }
 };
+}
+};
 
 Blockly.Blocks['initialize2'] = {
   init: function() {

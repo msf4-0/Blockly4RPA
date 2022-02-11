@@ -32,7 +32,6 @@ Blockly.Blocks['initialize'] = {
     this.setHelpUrl(function(){
       var url = '';
       switch(func){
-        switch(func){
         case 'visual_automation':
           url = "https://github.com/msf4-0/Blockly4RPA/wiki/Core-Functions#visual-automation";
           break;
@@ -46,8 +45,6 @@ Blockly.Blocks['initialize'] = {
     return url;
     });
   }
-};
-}
 };
 
 Blockly.Blocks['initialize2'] = {

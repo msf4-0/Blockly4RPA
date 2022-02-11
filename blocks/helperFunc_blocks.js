@@ -137,10 +137,10 @@ Blockly.Blocks['exist_present'] = {
       var action = thisBlock.getFieldValue('ACTION');
       var tooltip = '';
       switch(action){
-        case 'exist()':
+        case 'exist':
           tooltip = 'exist()';
           break;
-        case 'present()':
+        case 'present':
           tooltip = 'present()';
           break;
       }

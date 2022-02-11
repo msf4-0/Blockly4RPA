@@ -1,5 +1,6 @@
 Blockly.Python['series_pandas'] = function(block) {
   var text_name = block.getFieldValue('NAME');
+  Blockly.Python.definitions_['import_pandas'] = 'import pandas as pd';
   var value_input = Blockly.Python.valueToCode(block, 'INPUT', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
   var code = text_name+'.Series('+value_input+')';
@@ -8,6 +9,7 @@ Blockly.Python['series_pandas'] = function(block) {
 };
 
 Blockly.Python['dataframe_pandas'] = function(block) {
+  Blockly.Python.definitions_['import_pandas'] = 'import pandas as pd';
   var text_name = block.getFieldValue('NAME');
   var value_input = Blockly.Python.valueToCode(block, 'INPUT', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
@@ -17,6 +19,7 @@ Blockly.Python['dataframe_pandas'] = function(block) {
 };
 
 Blockly.Python['head_tail'] = function(block) {
+  Blockly.Python.definitions_['import_pandas'] = 'import pandas as pd';
   var value_dataframe = Blockly.Python.valueToCode(block, 'DATAFRAME', Blockly.Python.ORDER_ATOMIC);
   var dropdown_input = block.getFieldValue('INPUT');
   var value_input = Blockly.Python.valueToCode(block, 'INPUT', Blockly.Python.ORDER_ATOMIC);
@@ -32,6 +35,7 @@ Blockly.Python['head_tail'] = function(block) {
 };
 
 Blockly.Python['index_col'] = function(block) {
+  Blockly.Python.definitions_['import_pandas'] = 'import pandas as pd';
   var value_dataframe = Blockly.Python.valueToCode(block, 'DATAFRAME', Blockly.Python.ORDER_ATOMIC);
   var dropdown_input = block.getFieldValue('INPUT');
   // TODO: Assemble Python into code variable.
@@ -41,6 +45,7 @@ Blockly.Python['index_col'] = function(block) {
 };
 
 Blockly.Python['describe_df'] = function(block) {
+  Blockly.Python.definitions_['import_pandas'] = 'import pandas as pd';
   var value_dataframe = Blockly.Python.valueToCode(block, 'DATAFRAME', Blockly.Python.ORDER_ATOMIC);
   var dropdown_action = block.getFieldValue('ACTION');
   // TODO: Assemble Python into code variable.
@@ -49,6 +54,7 @@ Blockly.Python['describe_df'] = function(block) {
 };
 
 Blockly.Python['empty'] = function(block) {
+  Blockly.Python.definitions_['import_pandas'] = 'import pandas as pd';
   var value_dataframe = Blockly.Python.valueToCode(block, 'DATAFRAME', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
   var code = value_dataframe+'.empty()';
@@ -57,6 +63,7 @@ Blockly.Python['empty'] = function(block) {
 };
 
 Blockly.Python['iloc_col_row'] = function(block) {
+  Blockly.Python.definitions_['import_pandas'] = 'import pandas as pd';
   var value_dataframe = Blockly.Python.valueToCode(block, 'DATAFRAME', Blockly.Python.ORDER_ATOMIC);
   var value_col = Blockly.Python.valueToCode(block, 'COL', Blockly.Python.ORDER_ATOMIC);
   var value_row = Blockly.Python.valueToCode(block, 'ROW', Blockly.Python.ORDER_ATOMIC);
@@ -66,18 +73,8 @@ Blockly.Python['iloc_col_row'] = function(block) {
   return [code, Blockly.Python.ORDER_NONE];
 };
 
-Blockly.Python['insert'] = function(block) {
-  var value_dataframe = Blockly.Python.valueToCode(block, 'DATAFRAME', Blockly.Python.ORDER_ATOMIC);
-  var value_loc = Blockly.Python.valueToCode(block, 'LOC', Blockly.Python.ORDER_ATOMIC);
-  var value_col = Blockly.Python.valueToCode(block, 'COL', Blockly.Python.ORDER_ATOMIC);
-  var value_value = Blockly.Python.valueToCode(block, 'VALUE', Blockly.Python.ORDER_ATOMIC);
-  var value_duplicate = Blockly.Python.valueToCode(block, 'DUPLICATE', Blockly.Python.ORDER_ATOMIC);
-  // TODO: Assemble Python into code variable.
-  var code = '...\n';
-  return code;
-};
-
 Blockly.Python['read_csv'] = function(block) {
+  Blockly.Python.definitions_['import_pandas'] = 'import pandas as pd';
   var text_name = block.getFieldValue('NAME');
   var value_dataframe = Blockly.Python.valueToCode(block, 'DATAFRAME', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
@@ -87,6 +84,7 @@ Blockly.Python['read_csv'] = function(block) {
 };
 
 Blockly.Python['read_excel'] = function(block) {
+  Blockly.Python.definitions_['import_pandas'] = 'import pandas as pd';
   var text_name = block.getFieldValue('NAME');
   var value_dataframe = Blockly.Python.valueToCode(block, 'DATAFRAME', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
@@ -96,6 +94,7 @@ Blockly.Python['read_excel'] = function(block) {
 };
 
 Blockly.Python['iat'] = function(block) {
+  Blockly.Python.definitions_['import_pandas'] = 'import pandas as pd';
   var value_dataframe = Blockly.Python.valueToCode(block, 'DATAFRAME', Blockly.Python.ORDER_ATOMIC);
   var value_row = Blockly.Python.valueToCode(block, 'ROW', Blockly.Python.ORDER_ATOMIC);
   var value_col = Blockly.Python.valueToCode(block, 'COL', Blockly.Python.ORDER_ATOMIC);
@@ -106,6 +105,7 @@ Blockly.Python['iat'] = function(block) {
 };
 
 Blockly.Python['iloc_slice'] = function(block) {
+  Blockly.Python.definitions_['import_pandas'] = 'import pandas as pd';
   var value_dataframe = Blockly.Python.valueToCode(block, 'DATAFRAME', Blockly.Python.ORDER_ATOMIC);
   var value_start = Blockly.Python.valueToCode(block, 'START', Blockly.Python.ORDER_ATOMIC);
   var value_stop = Blockly.Python.valueToCode(block, 'STOP', Blockly.Python.ORDER_ATOMIC);
@@ -116,6 +116,7 @@ Blockly.Python['iloc_slice'] = function(block) {
 };
 
 Blockly.Python['insert'] = function(block) {
+  Blockly.Python.definitions_['import_pandas'] = 'import pandas as pd';
   var value_dataframe = Blockly.Python.valueToCode(block, 'DATAFRAME', Blockly.Python.ORDER_ATOMIC);
   var value_loc = Blockly.Python.valueToCode(block, 'LOC', Blockly.Python.ORDER_ATOMIC);
   var value_col = Blockly.Python.valueToCode(block, 'COL', Blockly.Python.ORDER_ATOMIC);
@@ -127,6 +128,7 @@ Blockly.Python['insert'] = function(block) {
 };
 
 Blockly.Python['loc'] = function(block) {
+  Blockly.Python.definitions_['import_pandas'] = 'import pandas as pd';
   var value_dataframe = Blockly.Python.valueToCode(block, 'DATAFRAME', Blockly.Python.ORDER_ATOMIC);
   var value_row = Blockly.Python.valueToCode(block, 'ROW', Blockly.Python.ORDER_ATOMIC);
   var value_col = Blockly.Python.valueToCode(block, 'COL', Blockly.Python.ORDER_ATOMIC);
@@ -143,6 +145,7 @@ Blockly.Python['loc'] = function(block) {
 };
 
 Blockly.Python['slice_df'] = function(block) {
+  Blockly.Python.definitions_['import_pandas'] = 'import pandas as pd';
   var value_dataframe = Blockly.Python.valueToCode(block, 'DATAFRAME', Blockly.Python.ORDER_ATOMIC);
   var dropdown_start = block.getFieldValue('START');
   var value_rows = Blockly.Python.valueToCode(block, 'ROWS', Blockly.Python.ORDER_ATOMIC);
@@ -163,6 +166,7 @@ Blockly.Python['slice_df'] = function(block) {
 };
 
 Blockly.Python['astype'] = function(block) {
+  Blockly.Python.definitions_['import_pandas'] = 'import pandas as pd';
   var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_MEMBER);
   var value_dtype = Blockly.Python.valueToCode(block, 'DTYPE', Blockly.Python.ORDER_ATOMIC);
   var dropdown_copy = block.getFieldValue('COPY');
@@ -174,6 +178,7 @@ Blockly.Python['astype'] = function(block) {
 };
 
 Blockly.Python['set_df_to'] = function(block) {
+  Blockly.Python.definitions_['import_pandas'] = 'import pandas as pd';
   var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_ATOMIC);
   var value_row = Blockly.Python.valueToCode(block, 'ROW', Blockly.Python.ORDER_ATOMIC);
   var value_col = Blockly.Python.valueToCode(block, 'COL', Blockly.Python.ORDER_ATOMIC);
@@ -190,6 +195,7 @@ Blockly.Python['set_df_to'] = function(block) {
 };
 
 Blockly.Python['get_df2d'] = function(block) {
+  Blockly.Python.definitions_['import_pandas'] = 'import pandas as pd';
   var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_ATOMIC);
   var value_row = Blockly.Python.valueToCode(block, 'ROW', Blockly.Python.ORDER_ATOMIC);
   var value_col = Blockly.Python.valueToCode(block, 'COL', Blockly.Python.ORDER_ATOMIC);
@@ -206,6 +212,7 @@ Blockly.Python['get_df2d'] = function(block) {
 };
 
 Blockly.Python['axes'] = function(block) {
+  Blockly.Python.definitions_['import_pandas'] = 'import pandas as pd';
   var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
   var code = value_name+'.axes';
@@ -214,6 +221,7 @@ Blockly.Python['axes'] = function(block) {
 };
 
 Blockly.Python['iloc_row_col'] = function(block) {
+  Blockly.Python.definitions_['import_pandas'] = 'import pandas as pd';
   var value_dataframe = Blockly.Python.valueToCode(block, 'DATAFRAME', Blockly.Python.ORDER_ATOMIC);
   var value_row = Blockly.Python.valueToCode(block, 'ROW', Blockly.Python.ORDER_ATOMIC);
   var value_col = Blockly.Python.valueToCode(block, 'COL', Blockly.Python.ORDER_ATOMIC);
@@ -230,6 +238,7 @@ Blockly.Python['iloc_row_col'] = function(block) {
 };
 
 Blockly.Python['set_df_label'] = function(block) {
+  Blockly.Python.definitions_['import_pandas'] = 'import pandas as pd';
   var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_ATOMIC);
   var value_row = Blockly.Python.valueToCode(block, 'ROW', Blockly.Python.ORDER_ATOMIC);
   var value_col = Blockly.Python.valueToCode(block, 'COL', Blockly.Python.ORDER_ATOMIC);

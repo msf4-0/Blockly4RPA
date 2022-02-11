@@ -2,14 +2,16 @@ Blockly.Python['import_as'] = function(block) {
   var text_module = block.getFieldValue('MODULE');
   var text_name = block.getFieldValue('NAME');
   // TODO: Assemble Python into code variable.
-  var code = 'import '+text_module+' as '+text_name +'\n';
+  Blockly.Python.definitions_['import_'+text_module] = 'import '+text_module+ ' as ' + text_name;
+  var code ='';
   return code;
 };
 
 Blockly.Python['import'] = function(block) {
   var text_module = block.getFieldValue('MODULE');
   // TODO: Assemble Python into code variable.
-  var code = 'import '+text_module+'\n';
+  Blockly.Python.definitions_['import_'+text_module] = 'import '+text_module;
+  var code =''; 
   return code;
 };
 
@@ -26,7 +28,8 @@ Blockly.Python['from_block'] = function(block) {
   var text_module = block.getFieldValue('MODULE');
   var text_name = block.getFieldValue('NAME');
   // TODO: Assemble Python into code variable.
-  var code = 'from '+text_module + ' import ' +text_name+ '\n';
+  Blockly.Python.definitions_['from'+text_module] = 'from '+ text_module+' import '+ text_name;
+  var code ='';
   return code;
 };
 

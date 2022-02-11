@@ -1,4 +1,5 @@
 Blockly.Python['telegram'] = function(block) {
+  Blockly.Python.definitions_['import_rpa'] = 'import rpa as r';
   var text_name = block.getFieldValue('NAME');
   var value_telegram_id = Blockly.Python.valueToCode(block, 'TELEGRAM_ID', Blockly.Python.ORDER_ATOMIC);
   var value_text_to_send = Blockly.Python.valueToCode(block, 'TEXT_TO_SEND', Blockly.Python.ORDER_ATOMIC);
@@ -8,6 +9,7 @@ Blockly.Python['telegram'] = function(block) {
 };
 
 Blockly.Python['keyboard'] = function(block) {
+  Blockly.Python.definitions_['import_rpa'] = 'import rpa as r';
   var text_name = block.getFieldValue('NAME');
   var value_keys_and_modifier = Blockly.Python.valueToCode(block, 'KEYS_AND_MODIFIER', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
@@ -16,6 +18,7 @@ Blockly.Python['keyboard'] = function(block) {
 };
 
 Blockly.Python['mouse'] = function(block) {
+  Blockly.Python.definitions_['import_rpa'] = 'import rpa as r';
   var text_name = block.getFieldValue('NAME');
   var dropdown_event = block.getFieldValue('EVENT');
   // TODO: Assemble Python into code variable.
@@ -24,6 +27,7 @@ Blockly.Python['mouse'] = function(block) {
 };
 
 Blockly.Python['wait'] = function(block) {
+  Blockly.Python.definitions_['import_rpa'] = 'import rpa as r';
   var text_name = block.getFieldValue('NAME');
   var dropdown_time = block.getFieldValue('TIME');
   var value_delay = Blockly.Python.valueToCode(block, 'DELAY', Blockly.Python.ORDER_ATOMIC);
@@ -39,6 +43,7 @@ Blockly.Python['wait'] = function(block) {
 };
 
 Blockly.Python['popup'] = function(block) {
+  Blockly.Python.definitions_['import_rpa'] = 'import rpa as r';
   var text_name = block.getFieldValue('NAME');
   var value_string_in_url = Blockly.Python.valueToCode(block, 'STRING_IN_URL', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
@@ -54,6 +59,7 @@ Blockly.Python['popup'] = function(block) {
 };
 
 Blockly.Python['vision'] = function(block) {
+  Blockly.Python.definitions_['import_rpa'] = 'import rpa as r';
   var text_name = block.getFieldValue('NAME');
   var value_command_to_run = Blockly.Python.valueToCode(block, 'COMMAND_TO_RUN', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
@@ -62,6 +68,7 @@ Blockly.Python['vision'] = function(block) {
 };
 
 Blockly.Python['timeout'] = function(block) {
+  Blockly.Python.definitions_['import_rpa'] = 'import rpa as r';
   var text_name = block.getFieldValue('NAME');
   var value_time = Blockly.Python.valueToCode(block, 'TIME', Blockly.Python.ORDER_ATOMIC);
   // TODO: Assemble Python into code variable.
@@ -86,6 +93,7 @@ Blockly.Python['table_upload'] = function(block) {
 };
 
 Blockly.Python['download_unzip_frame'] = function(block) {
+  Blockly.Python.definitions_['import_rpa'] = 'import rpa as r';
   var text_name = block.getFieldValue('NAME');
   var dropdown_action = block.getFieldValue('ACTION');
   var value_input = Blockly.Python.valueToCode(block, 'INPUT', Blockly.Python.ORDER_ATOMIC);
@@ -102,6 +110,7 @@ Blockly.Python['download_unzip_frame'] = function(block) {
 };
 
 Blockly.Python['run_dom'] = function(block) {
+  Blockly.Python.definitions_['import_rpa'] = 'import rpa as r';
   var text_name = block.getFieldValue('NAME');
   var dropdown_action = block.getFieldValue('ACTION');
   var value_command_to_run = Blockly.Python.valueToCode(block, 'COMMAND_TO_RUN', Blockly.Python.ORDER_ATOMIC);

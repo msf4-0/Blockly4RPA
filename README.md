@@ -1,5 +1,7 @@
 # Blockly4RPA
 
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
   **Blockly4RPA** is a drag and drop Web-Based Low Code User Interface (UI) or Robotic Process Automation (RPA) based on [TagUI](https://tagui.readthedocs.io/en/latest/index.html). Each of it blocks represent a command in python, which can be later run into any IDE.    
 
 ![Blockly4RPA_UI](https://user-images.githubusercontent.com/88389254/152508781-9bd835c6-2cc7-4768-ae4f-aa64408a04f8.png)

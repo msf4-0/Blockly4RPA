@@ -76,5 +76,3 @@ Be aware that all example and test are made using a Window OS certainfunctionali
 
 
 
-
-

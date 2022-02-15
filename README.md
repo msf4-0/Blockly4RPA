@@ -1,6 +1,11 @@
 # Blockly4RPA
 
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+![License](https://img.shields.io/github/license/msf4-0/Blockly4RPA)
+![Issues](https://img.shields.io/github/issues/msf4-0/Blockly4RPA)
+![Start](https://img.shields.io/github/stars/msf4-0/Blockly4RPA)
+![Releases](https://img.shields.io/github/release/msf4-0/Blockly4RPA)
+![Downloads](https://img.shields.io/github/downloads/msf4-0/Blockly4RPA/total)
+
 
   **Blockly4RPA** is a drag and drop Web-Based Low Code User Interface (UI) or Robotic Process Automation (RPA) based on [TagUI](https://tagui.readthedocs.io/en/latest/index.html). Each of it blocks represent a command in python, which can be later run into any IDE.    
 

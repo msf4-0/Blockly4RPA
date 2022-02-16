@@ -7,7 +7,7 @@ Blockly.Blocks['initialize'] = {
         .appendField(new Blockly.FieldTextInput("r"), "NAME")
         .appendField("initialize")
         .appendField(new Blockly.FieldDropdown([["visual_automation","visual_automation"], 
-        ["chrome_browser ","chrome_browser"], ["turbo_mode","turbo_mode"]]), "ACTION");
+        ["chrome_browser ","chrome_browser"], ["headless","headless_mode"], ["turbo_mode","turbo_mode"]]), "ACTION");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -22,6 +22,9 @@ Blockly.Blocks['initialize'] = {
           break;
         case 'chrome_browser':
           tooltip = 'init(chrome_browser)';
+          break;
+        case 'headless':
+          tooltip = 'init(headless_mode)';
           break;
         case 'turbo_mode':
           tooltip = 'init(turbo_mode)';
@@ -56,7 +59,28 @@ Blockly.Blocks['initialize2'] = {
         .appendField("visual_automation ");
     this.appendValueInput("BOOLEAN0")
         .setCheck("Boolean")
+        .appendField("chrome_browser ")
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+ this.setTooltip("init()");
+ this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Core-Functions#initialize-browser-and-visual-automatisation");
+  }
+};
+Blockly.Blocks['initialize3'] = {
+  init: function() {
+    this.appendValueInput("BOOLEAN")
+        .setCheck("Boolean")
+        .appendField("with")
+        .appendField(new Blockly.FieldTextInput("r"), "NAME")
+        .appendField("visual_automation ");
+    this.appendValueInput("BOOLEAN0")
+        .setCheck("Boolean")
         .appendField("chrome_browser ");
+    this.appendValueInput("BOOLEAN1")
+        .setCheck("Boolean")
+        .appendField("headless_mode");
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);

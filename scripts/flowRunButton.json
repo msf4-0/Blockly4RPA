@@ -1,0 +1,115 @@
+[
+    {
+        "id": "cc0d5fa5eda4ada6",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8f97a3cd0cfdde5a",
+        "type": "exec",
+        "z": "cc0d5fa5eda4ada6",
+        "command": "python",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 330,
+        "y": 180,
+        "wires": [
+            [
+                "1b2060907176e029"
+            ],
+            [
+                "1b2060907176e029"
+            ],
+            [
+                "1b2060907176e029"
+            ]
+        ]
+    },
+    {
+        "id": "1b2060907176e029",
+        "type": "debug",
+        "z": "cc0d5fa5eda4ada6",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "45fd00c896117df7",
+        "type": "ui_text_input",
+        "z": "cc0d5fa5eda4ada6",
+        "name": "",
+        "label": "file to run ",
+        "tooltip": "file.py",
+        "group": "b49f57538ddbc113",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "passthru": false,
+        "mode": "text",
+        "delay": "0",
+        "topic": "topic",
+        "sendOnBlur": false,
+        "className": "",
+        "topicType": "msg",
+        "x": 140,
+        "y": 160,
+        "wires": [
+            [
+                "8f97a3cd0cfdde5a"
+            ]
+        ]
+    },
+    {
+        "id": "71a39c76cdc90b51",
+        "type": "ui_text",
+        "z": "cc0d5fa5eda4ada6",
+        "group": "b49f57538ddbc113",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "name": "",
+        "label": "press enter to run ",
+        "format": "",
+        "layout": "row-spread",
+        "className": "",
+        "x": 170,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "b49f57538ddbc113",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "2ac65b303fd6250e",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2ac65b303fd6250e",
+        "type": "ui_tab",
+        "name": "Blockly4RPA",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

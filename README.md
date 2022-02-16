@@ -80,7 +80,7 @@ To learn and understand how to use a specific block under evry category have loo
 Be aware that all example and test are made using a Window OS certainfunctionality may differ for different OS. 
 
 ## Contributing to Blockly4RPA
-want to help us expend or fix a bug in Blockly4RPA? First you may need to do pull request after being grand the authority to add or modify the code. You may have a look at the [contributing file] for some guidelines to follow so we can keep a clean flow structure.
+want to help us improve in Blockly4RPA? You are welcome. First you may need to do pull request after being grand the authority to add or modify the code. You may have a look at the [contributing file](https://github.com/msf4-0/Blockly4RPA/blob/main/contributor.md) for some guidelines to follow so we can keep a clean flow structure.
 
 
 

@@ -1,3 +1,4 @@
+//open url block
 Blockly.Blocks['url'] = {
   init: function() {
     this.appendValueInput("URL")
@@ -12,7 +13,7 @@ Blockly.Blocks['url'] = {
  this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Basic-Functions#open-url");
   }
 };
-
+//left-click, right-click, double click & move to block 
 Blockly.Blocks['click1'] = {
   init: function() {
     this.appendDummyInput()
@@ -53,7 +54,7 @@ Blockly.Blocks['click1'] = {
   this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Basic-Functions#left-click-right-click-double-click--move-to");
   }
 };
-
+// Web Input block with point input
 Blockly.Blocks['type'] = {
   init: function() {
     this.appendValueInput("X")
@@ -75,7 +76,7 @@ Blockly.Blocks['type'] = {
  this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Basic-Functions#web-input");
   }
 };
-
+// Web Input block with string input 
 Blockly.Blocks['type1'] = {
   init: function() {
     this.appendValueInput("ELEMENT_IDENTIFIER")
@@ -93,7 +94,7 @@ Blockly.Blocks['type1'] = {
  this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Basic-Functions#web-input");
   }
 };
-
+// Selection Option with string input 
 Blockly.Blocks['select'] = {
   init: function() {
     this.appendDummyInput()
@@ -113,7 +114,7 @@ Blockly.Blocks['select'] = {
  this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Basic-Functions#selection-option");
   }
 };
-
+// Selection Option with point input for dropdown
 Blockly.Blocks['select1'] = {
   init: function() {
     this.appendDummyInput()
@@ -136,7 +137,7 @@ Blockly.Blocks['select1'] = {
  this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Basic-Functions#selection-option");
   }
 };
-
+// Selection Option with point input for dropdown and option 
 Blockly.Blocks['select2'] = {
   init: function() {
     this.appendDummyInput()
@@ -163,7 +164,7 @@ Blockly.Blocks['select2'] = {
  this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Basic-Functions#selection-option");
   }
 };
-
+// Read block with point 
 Blockly.Blocks['read'] = {
   init: function() {
     this.appendDummyInput()
@@ -188,7 +189,7 @@ Blockly.Blocks['read'] = {
  this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Basic-Functions#read");
   }
 };
-
+// Read block with point 
 Blockly.Blocks['read1'] = {
   init: function() {
     this.appendDummyInput()
@@ -203,7 +204,7 @@ Blockly.Blocks['read1'] = {
  this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Basic-Functions#read");
   }
 };
-
+//Read a file block 
 Blockly.Blocks['load'] = {
   init: function() {
     this.appendValueInput("FILENAME_TO_LOAD")
@@ -218,7 +219,7 @@ Blockly.Blocks['load'] = {
  this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Basic-Functions#read-a-file");
   }
 };
-
+//Ask the user block
 Blockly.Blocks['ask'] = {
   init: function() {
     this.appendValueInput("TEXT_TO_PROMPT")
@@ -233,7 +234,7 @@ Blockly.Blocks['ask'] = {
  this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Basic-Functions#ask-the-user");
   }
 };
-
+//left-click, right-click, double click & move to block 
 Blockly.Blocks['click'] = {
   init: function() {
     this.appendValueInput("ELEMENT_IDENTIFIER")
@@ -269,7 +270,7 @@ Blockly.Blocks['click'] = {
  this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Basic-Functions#left-click-right-click-double-click--move-to");
   }
 };
-
+//screenshot, create file and write file block 
 Blockly.Blocks['snap_dump_write'] = {
   init: function() {
     this.appendDummyInput()

@@ -1,4 +1,5 @@
 Blockly.Blocks['series_pandas'] = {
+  // create a series with pandas 
   init: function() {
     this.appendValueInput("INPUT")
         .setCheck(null)
@@ -9,11 +10,12 @@ Blockly.Blocks['series_pandas'] = {
     this.setOutput(true, null);
     this.setColour(75);
  this.setTooltip("Create a simple Pandas Series from a list or dictionary");
- this.setHelpUrl("https://www.w3schools.com/python/pandas/pandas_series.asp");
+ this.setHelpUrl("https://pandas.pydata.org/docs/user_guide/dsintro.html#series");
   }
 };
 
 Blockly.Blocks['dataframe_pandas'] = {
+  // create a dataframe with pandas 
   init: function() {
     this.appendValueInput("INPUT")
         .setCheck("Array")
@@ -24,11 +26,12 @@ Blockly.Blocks['dataframe_pandas'] = {
     this.setOutput(true, null);
     this.setColour(75);
  this.setTooltip("Create a simple Pandas DataFrame");
- this.setHelpUrl("https://www.w3schools.com/python/pandas/pandas_dataframes.asp");
+ this.setHelpUrl("https://pandas.pydata.org/docs/user_guide/dsintro.html#dataframe");
   }
 };
 
 Blockly.Blocks['head_tail'] = {
+  // return the head or tail of dataframe with pandas 
   init: function() {
     this.appendValueInput("DATAFRAME")
         .setCheck("VAR")
@@ -61,24 +64,12 @@ Blockly.Blocks['head_tail'] = {
       }
       return tooltip
     });
-    this.setHelpUrl(function(){
-      var url = '';
-      switch(input){
-        case 'head':
-        case 'head()':
-          url ='https://www.w3schools.com/python/pandas/ref_df_head.asp';
-          break;
-        case 'tail()':
-        case 'tail()':
-          url ='https://www.w3schools.com/python/pandas/ref_df_tail.asp';
-          break;
-      }
-      return url;
-    });
+    this.setHelpUrl("https://pandas.pydata.org/docs/user_guide/basics.html#head-and-tail")
   }
 };
 
 Blockly.Blocks['index_col'] = {
+  // return the index/columns/types/shape/null/size of dataframe with pandas 
   init: function() {
     this.appendValueInput("DATAFRAME")
         .setCheck("VAR")
@@ -120,12 +111,40 @@ Blockly.Blocks['index_col'] = {
       }
       return tooltip;
     });
-    this.setHelpUrl("");
+    this.setHelpUrl(function(){
+      var url = '';
+      switch(input){
+        case 'columns':
+          url ='https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.columns.html#pandas.DataFrame.columns';
+          break;
+        case 'index':
+          url ='https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.index.html#pandas.DataFrame.index';
+          break;
+        case 'dtypes':
+          url ='https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.dtypes.html#pandas.DataFrame.dtypes';
+          break;
+        case 'shape':
+          url ='https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.shape.html#pandas-dataframe-shape';
+          break;
+        case 'isnull':
+          url ='https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.isnull.html#pandas-dataframe-isnull';
+          break;
+        case 'size':
+          url ='https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.size.html#pandas-dataframe-size';
+          break;
+        case 'sum':
+          url ='https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sum.html#pandas-dataframe-sum';
+          break;
+      }
+      return url;
+    });
 
   }
 };
 
 Blockly.Blocks['describe_df'] = {
+  // describe a dataframe
+  // Print a concise summary of a DataFrame.
   init: function() {
     this.appendValueInput("DATAFRAME")
         .setCheck("VAR")
@@ -154,10 +173,10 @@ Blockly.Blocks['describe_df'] = {
       var url = '';
       switch(action){
         case 'describe':
-          url ='https://www.w3schools.com/python/pandas/ref_df_describe.asp';
+          url ='https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.describe.html#pandas-dataframe-describe';
           break;
         case 'info':
-          url ='https://www.w3schools.com/python/pandas/ref_df_info.asp';
+          url ='https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.info.html#pandas-dataframe-info';
           break;
       }
       return url;
@@ -166,6 +185,7 @@ Blockly.Blocks['describe_df'] = {
 };
 
 Blockly.Blocks['empty'] = {
+  //Indicator whether Series/DataFrame is empty.
   init: function() {
     this.appendValueInput("DATAFRAME")
         .setCheck("VAR")
@@ -176,11 +196,12 @@ Blockly.Blocks['empty'] = {
     this.setOutput(true, "Boolean");
     this.setColour(75);
  this.setTooltip("Returns True if the DataFrame is empty, otherwise False");
- this.setHelpUrl("https://www.w3schools.com/python/pandas/ref_df_empty.asp");
+ this.setHelpUrl("https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.empty.html#pandas-dataframe-empty");
   }
 };
 
 Blockly.Blocks['iat'] = {
+  //Access a single value for a row/column pair by integer position
   init: function() {
     this.appendValueInput("DATAFRAME")
         .setCheck("VAR")
@@ -194,7 +215,7 @@ Blockly.Blocks['iat'] = {
     this.setOutput(true, null);
     this.setColour(75);
  this.setTooltip("Get the value of the item in the specified position");
- this.setHelpUrl("https://www.w3schools.com/python/pandas/ref_df_iat.asp");
+ this.setHelpUrl("https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iat.html#pandas-dataframe-iat");
   }
 };
 
@@ -211,12 +232,13 @@ Blockly.Blocks['iloc_slice'] = {
         .appendField("to");
     this.setOutput(true, null);
     this.setColour(75);
- this.setTooltip("");
+ this.setTooltip("slice dataframe using position");
  this.setHelpUrl("");
   }
 };
 
 Blockly.Blocks['insert'] = {
+  //Insert column into DataFrame at specified location.
   init: function() {
     this.appendValueInput("DATAFRAME")
         .setCheck("VAR")
@@ -237,7 +259,7 @@ Blockly.Blocks['insert'] = {
     this.setNextStatement(true, null);
     this.setColour(75);
  this.setTooltip("Insert a column in the DataFrame");
- this.setHelpUrl("https://www.w3schools.com/python/pandas/ref_df_insert.asp");
+ this.setHelpUrl("https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.insert.html#pandas-dataframe-insert");
   }
 };
 
@@ -257,6 +279,7 @@ Blockly.Blocks['read_csv'] = {
 };
 
 Blockly.Blocks['loc'] = {
+  //Access a group of rows and columns by label(s) or a boolean array.
   init: function() {
     this.appendValueInput("DATAFRAME")
         .setCheck("VAR")
@@ -270,11 +293,12 @@ Blockly.Blocks['loc'] = {
     this.setOutput(true, null);
     this.setColour(75);
  this.setTooltip("Get the value of a group of elements specified using their labels");
- this.setHelpUrl("https://www.w3schools.com/python/pandas/ref_df_loc.asp");
+ this.setHelpUrl("https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html#pandas-dataframe-loc");
   }
 };
 
 Blockly.Blocks['slice_df'] = {
+  //slice a daframe from start to end 
   init: function() {
     this.appendValueInput("DATAFRAME")
         .setCheck("VAR")
@@ -290,11 +314,12 @@ Blockly.Blocks['slice_df'] = {
     this.setOutput(true, null);
     this.setColour(75);
  this.setTooltip("slice a datafrom from row x to y exclude");
- this.setHelpUrl("");
+ this.setHelpUrl("https://pandas.pydata.org/docs/user_guide/indexing.html#slicing-ranges");
   }
 };
 
 Blockly.Blocks['astype'] = {
+  //Cast a pandas object to a specified dtype dtype
   init: function() {
     this.appendValueInput("NAME")
         .setCheck("VAR")
@@ -311,11 +336,12 @@ Blockly.Blocks['astype'] = {
     this.setOutput(true, null);
     this.setColour(75);
  this.setTooltip("Convert the DataFrame into a specified dtype");
- this.setHelpUrl("https://www.w3schools.com/python/pandas/ref_df_astype.asp");
+ this.setHelpUrl("https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.astype.html#pandas-dataframe-astype");
   }
 };
 
 Blockly.Blocks['set_df_to'] = {
+  // set a value in dataframe by acess true position 
   init: function() {
     this.appendValueInput("NAME")
         .setCheck("VAR")
@@ -334,11 +360,12 @@ Blockly.Blocks['set_df_to'] = {
     this.setNextStatement(true, null);
     this.setColour(75);
  this.setTooltip("set the variable at the specific row and col(optional)position ");
- this.setHelpUrl("");
+ this.setHelpUrl("https://pandas.pydata.org/docs/user_guide/dsintro.html#column-selection-addition-deletion");
   }
 };
 
 Blockly.Blocks['get_df2d'] = {
+  // access dataframe by position, label 
   init: function() {
     this.appendValueInput("NAME")
         .setCheck("VAR")
@@ -353,19 +380,20 @@ Blockly.Blocks['get_df2d'] = {
     this.setOutput(true, null);
     this.setColour(75);
  this.setTooltip("get the data at specific row and column");
- this.setHelpUrl("");
+ this.setHelpUrl("https://pandas.pydata.org/docs/user_guide/dsintro.html#column-selection-addition-deletion");
   }
 };
 
 Blockly.Blocks['axes'] = {
+  //Return a list representing the axes of the DataFrame.
   init: function() {
     this.appendValueInput("NAME")
         .setCheck("VAR")
         .appendField("get labels of row and col in ");
     this.setOutput(true, "Array");
     this.setColour(75);
- this.setTooltip("Returns the labels of the rows and the columns of the DataFrame");
- this.setHelpUrl("https://www.w3schools.com/python/pandas/ref_df_axes.asp");
+ this.setTooltip("Return a list representing the axes of the DataFrame.");
+ this.setHelpUrl("https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.axes.html#pandas.DataFrame.axes");
   }
 };
 
@@ -385,24 +413,26 @@ Blockly.Blocks['read_excel'] = {
 };
 
 Blockly.Blocks['iloc_row_col'] = {
+  //Purely integer-location based indexing for selection by position.
   init: function() {
     this.appendValueInput("DATAFRAME")
         .setCheck("VAR")
         .appendField("from dataframe");
     this.appendValueInput("ROW")
-        .setCheck(null)
+        .setCheck(["Number", "Boolean", "Array"])
         .appendField("access data at row position");
     this.appendValueInput("COL")
-        .setCheck(null)
+        .setCheck(["Number", "Boolean", "Array"])
         .appendField("and col position");
     this.setOutput(true, null);
     this.setColour(75);
  this.setTooltip("Get the values of a group of elements in the specified positions");
- this.setHelpUrl("https://www.w3schools.com/python/pandas/ref_df_iloc.asp");
+ this.setHelpUrl("https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iloc.html#pandas-dataframe-iloc");
   }
 };
 
 Blockly.Blocks['set_df_label'] = {
+  // set value in dataframe data with label 
   init: function() {
     this.appendValueInput("NAME")
         .setCheck("VAR")
@@ -421,6 +451,6 @@ Blockly.Blocks['set_df_label'] = {
     this.setNextStatement(true, null);
     this.setColour(75);
  this.setTooltip("set the data with the specific labels col(optional)");
- this.setHelpUrl("");
+ this.setHelpUrl("https://pandas.pydata.org/docs/user_guide/indexing.html#selection-by-label");
   }
 };

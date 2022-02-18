@@ -54,6 +54,7 @@ Blockly.Blocks['del_chars'] = {
 };
 
 Blockly.Blocks['mouse_event'] = {
+  //Mouse Coordinates block 
   init: function() {
     this.appendDummyInput()
         .appendField("with")

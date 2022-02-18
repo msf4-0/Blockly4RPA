@@ -33,6 +33,7 @@ Blockly.Blocks['keyboard'] = {
 };
 
 Blockly.Blocks['mouse'] = {
+  // mouse move 
   init: function() {
     this.appendDummyInput()
         .appendField("with")
@@ -84,6 +85,7 @@ Blockly.Blocks['popup'] = {
 };
 
 Blockly.Blocks['vision'] = {
+  // Run Python block 
   init: function() {
     this.appendValueInput("COMMAND_TO_RUN")
         .setCheck("String")
@@ -117,6 +119,7 @@ Blockly.Blocks['timeout'] = {
 };
 
 Blockly.Blocks['table_upload'] = {
+  // Create CSV & upload website block 
   init: function() {
     this.appendValueInput("TABLE_NUMBER")
         .setCheck(["String", "Number"])

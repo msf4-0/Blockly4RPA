@@ -1,4 +1,5 @@
 Blockly.Blocks['dic_clear'] = {
+  //clear/copy/pop last element in dictionary  
   init: function() {
     this.appendValueInput("DICTIONARY")
         .setCheck("VAR")
@@ -46,6 +47,7 @@ Blockly.Blocks['dic_clear'] = {
 };
 
 Blockly.Blocks['dic_item'] = {
+  // return value, 
   init: function() {
     this.appendValueInput("DICTIONARY")
         .setCheck("VAR")
@@ -93,6 +95,7 @@ Blockly.Blocks['dic_item'] = {
 };
 
 Blockly.Blocks['get_dic'] = {
+  // get/pop element in dictioary at key value 
   init: function() {
     this.appendValueInput("DICTIONARY")
         .setCheck("VAR")

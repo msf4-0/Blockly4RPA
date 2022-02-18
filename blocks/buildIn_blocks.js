@@ -1,4 +1,5 @@
 Blockly.Blocks['float_block'] = {
+ // float casting block 
   init: function() {
     this.appendValueInput("OBJECT")
         .setCheck(["Number", "String"])
@@ -12,6 +13,7 @@ Blockly.Blocks['float_block'] = {
 };
 
 Blockly.Blocks['int_block'] = {
+  // int casting block 
   init: function() {
     this.appendValueInput("OBJECT")
         .setCheck(["Number", "String"])
@@ -25,6 +27,7 @@ Blockly.Blocks['int_block'] = {
 };
 
 Blockly.Blocks['maximum_block'] = {
+  //maximum look up block 
   init: function() {
     this.appendValueInput("LIST")
         .setCheck("Array")
@@ -38,6 +41,7 @@ Blockly.Blocks['maximum_block'] = {
 };
 
 Blockly.Blocks['power'] = {
+  //power block 
   init: function() {
     this.appendValueInput("BASE")
         .setCheck("Number")
@@ -54,6 +58,7 @@ Blockly.Blocks['power'] = {
 };
 
 Blockly.Blocks['range'] = {
+  // range printing block 
   init: function() {
     this.appendValueInput("START")
         .setCheck("Number")
@@ -73,6 +78,7 @@ Blockly.Blocks['range'] = {
 };
 
 Blockly.Blocks['min_block'] = {
+  // minimun lookup block 
   init: function() {
     this.appendValueInput("LIST")
         .setCheck("Array")
@@ -86,6 +92,7 @@ Blockly.Blocks['min_block'] = {
 };
 
 Blockly.Blocks['enumarate_block'] = {
+  // eneumarate value from a list 
   init: function() {
     this.appendValueInput("LIST")
         .setCheck("Array")
@@ -103,6 +110,7 @@ Blockly.Blocks['enumarate_block'] = {
 };
 
 Blockly.Blocks['filter'] = {
+  // the block filter value in list
   init: function() {
     this.appendStatementInput("FUNCTION")
         .setCheck(null)
@@ -119,6 +127,7 @@ Blockly.Blocks['filter'] = {
 };
 
 Blockly.Blocks['next'] = {
+  // return next value block 
   init: function() {
     this.appendValueInput("INPUT")
         .setCheck("Array")
@@ -132,6 +141,7 @@ Blockly.Blocks['next'] = {
 };
 
 Blockly.Blocks['insitanceof_block'] = {
+  // the block if an abject is instance of class
   init: function() {
     this.appendValueInput("OBJECT")
         .setCheck(null)
@@ -161,6 +171,7 @@ Blockly.Blocks['create_dict'] = {
 };
 
 Blockly.Blocks['reverse_block'] = {
+  // reverse block 
   init: function() {
     this.appendValueInput("LIST")
         .setCheck("Array")

@@ -1,4 +1,4 @@
-
+//init(visual/browser/turbo/headless) 
 Blockly.Blocks['initialize'] = {
   init: function() {
     this.appendValueInput("BOOLEAN")
@@ -50,6 +50,7 @@ Blockly.Blocks['initialize'] = {
   }
 };
 
+// init ( browser and visual )
 Blockly.Blocks['initialize2'] = {
   init: function() {
     this.appendValueInput("BOOLEAN")
@@ -68,6 +69,8 @@ Blockly.Blocks['initialize2'] = {
  this.setHelpUrl("https://github.com/msf4-0/Blockly4RPA/wiki/Core-Functions#initialize-browser-and-visual-automatisation");
   }
 };
+
+//init(chrome, visual, headless)
 Blockly.Blocks['initialize3'] = {
   init: function() {
     this.appendValueInput("BOOLEAN")
@@ -90,6 +93,7 @@ Blockly.Blocks['initialize3'] = {
   }
 };
 
+// init/close/pack/update block 
 Blockly.Blocks['init_close_pack_update'] = {
   init: function() {
     this.appendDummyInput()

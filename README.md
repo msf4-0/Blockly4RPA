@@ -51,7 +51,9 @@ After the flow is built, it may required to be saved or just save the python gen
 > Fig4 file name input popup box 
 
 ## Import Built Flow
-To modify a flow previoulsy built you will need fisrst to delete all the blocks currently present in the workspace by either dragging each block to the bin or reloading the web page, not doing so will make the imported workspace overlap with the current one. Then click on "Import Workspace" in the blue panel then choose the file xml you want to import then click on "Import" follow by "close" there you have your old workspace.  
+To modify a flow previoulsy built you will need fisrst to delete all the blocks currently present in the workspace by either dragging each block to the bin or reloading the web page, not doing so will make the imported workspace overlap with the current one. Then click on "Import Workspace" in the blue panel then choose the file xml you want to import then click on "Import" follow by "close" there you have your old workspace. 
+
+https://user-images.githubusercontent.com/88389254/154918342-27dd3538-f889-4e4a-ab58-ec737acece89.mp4
 
 ## Run Python script using Blockly4RPA
 To run your downloaded pythin script you can clic on "Run Python" in blue panel (Fig3) then the node-red dashboard UI, to run your file you will need to enter the location of your file enclose in to double quotation marks then press enter. **!!! Enter the location according to the default location your command prompt open in, example if your command prompt open in the user directory(Fig5) and your file is located in Downloads your entry will look like this "Downloads/py_file.py"(Fig6), if your file is located in same directory as the command prompt pointing all you need to do it to type the name of your file eg py_file.py without the quotation marks**

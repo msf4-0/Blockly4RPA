@@ -70,7 +70,7 @@ While your file is running you can have a look at the node-red dashboard to see 
 > Fig7 Node-red dashboard 
 
 ## Flow-Samples    
-You can have have a look at some flow sample in [here](https://github.com/msf4-0/Blockly4RPA/tree/main/sample%20flow), where there is different xml file, some tutorial on how to build a flow from scratch and snip image of build workspace.    
+You can have have a look at some flow sample in [here](https://github.com/msf4-0/Blockly4RPA/tree/main/sample%20flow), where there is different xml file, a [tutorial](https://www.youtube.com/watch?v=hqD_JHmw3kw) on how to build a flow from scratch and snip image of build workspace.    
 
 ## Block & generators structure 
 To know more about the each block and generator structure have look at the [blocks](https://github.com/msf4-0/Blockly4RPA/tree/main/blocks) and [generators](https://github.com/msf4-0/Blockly4RPA/tree/main/generators) directory, where you have blocks file names as each category in Blockly4RPA toolbox. However there are some blocks which are default imported from blockly for which detail can found in [blocks](https://github.com/google/blockly/tree/master/blocks) and [generators](https://github.com/google/blockly/tree/master/generators/python) directory in Blockly repository. 
